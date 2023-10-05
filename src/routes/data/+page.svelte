@@ -14,7 +14,7 @@
 
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale);
 
-	let selectedChartType = 'PolarArea';
+	let selectedChartType = 'Line';
 </script>
 
 <div class="flex p-8">
