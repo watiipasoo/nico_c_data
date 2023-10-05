@@ -66,7 +66,7 @@
 	<svelte:fragment slot="header">
 		{#if $page.url.pathname !== '/login' && $page.url.pathname !== '/register'}
 			<section class="card flex justify-between px-6 py-2 items-center">
-				<img class="h-16" src="/nicoC.png" />
+				<a href="/"><img class="h-16" src="/nicoC.png" /></a>
 				<div class="w-[70vh]">
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 						<div class="input-group-shim">
