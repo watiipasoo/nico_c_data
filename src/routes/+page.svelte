@@ -56,7 +56,7 @@
 			<h2 class="h4 font-semibold">Your account has been Deactivated</h2>
 		</div>
 	{/if}
-	<Carouseli />
+	<!-- <Carouseli /> -->
 	<div>
 		<h3 class="h3 mb-4 mt-12">Market Watch</h3>
 

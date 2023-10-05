@@ -11,6 +11,7 @@
 	} from 'chart.js';
 	import { data } from '../../components/data';
 	import LineChart from '../../components/charts/LineChart.svelte';
+	import BarChart from '../../components/charts/BarChart.svelte';
 
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale);
 
@@ -35,6 +36,9 @@
 		{#if selectedChartType === 'Line'}
 			<LineChart />
 		{/if}
+        {#if selectedChartType === 'Bar'}
+			<BarChart />
+		{/if}
 	</div>
 	<div>
 		<h2>Select Visualization Type</h2>
@@ -44,6 +48,9 @@
 			>
 			<button class="btn btn-sm variant-filled" on:click={() => (selectedChartType = 'Line')}
 				>Line</button
+			>
+            <button class="btn btn-sm variant-filled" on:click={() => (selectedChartType = 'Bar')}
+				>Bar</button
 			>
 		</div>
 	</div>
