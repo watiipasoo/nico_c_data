@@ -12,6 +12,7 @@
 	import { data } from '../../components/data';
 	import LineChart from '../../components/charts/LineChart.svelte';
 	import BarChart from '../../components/charts/BarChart.svelte';
+	import RadarChart from '../../components/charts/RadarChart.svelte';
 
 	ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale);
 
@@ -39,6 +40,9 @@
         {#if selectedChartType === 'Bar'}
 			<BarChart />
 		{/if}
+        {#if selectedChartType === 'Radar'}
+			<RadarChart />
+		{/if}
 	</div>
 	<div>
 		<h2>Select Visualization Type</h2>
@@ -51,6 +55,9 @@
 			>
             <button class="btn btn-sm variant-filled" on:click={() => (selectedChartType = 'Bar')}
 				>Bar</button
+			>
+            <button class="btn btn-sm variant-filled" on:click={() => (selectedChartType = 'Radar')}
+				>Radar</button
 			>
 		</div>
 	</div>
