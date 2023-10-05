@@ -58,7 +58,7 @@
 	{/if}
 	<!-- <Carouseli /> -->
 	<div>
-		<h3 class="h3 mb-4 mt-12">Market Watch</h3>
+		<h3 class="h3 mb-4 mt-4">Market Watch</h3>
 
 		<TabGroup>
 			<Tab bind:group={tabSet} name="tab1" value={0}>
