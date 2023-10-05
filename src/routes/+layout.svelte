@@ -69,7 +69,9 @@
 				<img class="h-16" src="/nicoC.png" />
 				<div class="w-[70vh]">
 					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-						<div class="input-group-shim"><Icon icon="material-symbols:search" color="white" width="20" /></div>
+						<div class="input-group-shim">
+							<Icon icon="material-symbols:search" color="white" width="20" />
+						</div>
 						<input type="search" placeholder="Search..." />
 						<button class="variant-filled-secondary">Submit</button>
 					</div>
@@ -105,19 +107,6 @@
 									</a>
 								</li>
 								<li>
-									<a href="/Industries" class={classesActive('/Industries')}>
-										<Icon icon="carbon:industry" color="white" width="25" />
-										<span class="flex-auto">Industries</span>
-									</a>
-								</li>
-
-								<li>
-									<a href="">
-										<Icon icon="fluent-mdl2:market" color="white" width="25" />
-										<span class="flex-auto">Markets</span>
-									</a>
-								</li>
-								<li>
 									<a href="/data" class={classesActive('/data')}>
 										<Icon icon="fluent:data-area-20-filled" color="white" width="25" />
 										<span class="flex-auto">Data</span>
@@ -133,6 +122,19 @@
 									<a href="/news" class={classesActive('/news')}>
 										<Icon icon="tabler:news" color="white" width="25" />
 										<span class="flex-auto">News</span>
+									</a>
+								</li>
+								<li>
+									<a href="/Industries" class={classesActive('/Industries')}>
+										<Icon icon="carbon:industry" color="white" width="25" />
+										<span class="flex-auto">Industries</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="">
+										<Icon icon="fluent-mdl2:market" color="white" width="25" />
+										<span class="flex-auto">Markets</span>
 									</a>
 								</li>
 							</ul>
