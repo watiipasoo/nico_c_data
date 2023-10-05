@@ -39,7 +39,8 @@
 					username: fullName,
 					subscription: selectedSubscription,
 					phone: phone,
-					location: location
+					location: location,
+					status: true
 				})
 				.eq('id', userData.user?.id);
 			if (errorProfile) {
