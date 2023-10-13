@@ -91,9 +91,13 @@
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
-					<button on:click={toggleTheme} class="variant-ghost-tertiary rounded-full p-1 border-none">
-						<Icon icon={currentIcon} width="20" />
-					</button>
+					<div class="flex justify-center items-center flex-col">
+						<button on:click={toggleTheme} class="variant-ghost-tertiary rounded-full p-1 border-none">
+							<Icon icon={currentIcon} width="20" />
+							
+						</button>
+						<span class="text-sm">Mode</span>
+					</div>
 					<div>
 						<a href="/profile">
 							<Avatar
@@ -120,38 +124,38 @@
 								<li>
 									<a href="/" class={classesActive('/')}>
 										<Icon icon="material-symbols:home-outline" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Home</span>
+										<span class="flex-auto text-sm">Home</span>
 									</a>
 								</li>
 								<li>
 									<a href="/data" class={classesActive('/data')}>
 										<Icon icon="fluent:data-area-20-filled" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Data</span>
+										<span class="flex-auto text-sm">Data</span>
 									</a>
 								</li>
 								<li>
 									<a href="/reports" class={classesActive('/reports')}>
 										<Icon icon="mdi:report-box-outline" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Reports</span>
+										<span class="flex-auto text-sm">Reports</span>
 									</a>
 								</li>
 								<li>
 									<a href="/news" class={classesActive('/news')}>
 										<Icon icon="tabler:news" color={classesActive('/')} width="25" />
-										<span class="flex-auto">News</span>
+										<span class="flex-auto text-sm">News</span>
 									</a>
 								</li>
 								<li>
 									<a href="/Industries" class={classesActive('/Industries')}>
 										<Icon icon="carbon:industry" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Industries</span>
+										<span class="flex-auto text-sm">Industries</span>
 									</a>
 								</li>
 
 								<li>
 									<a href="">
 										<Icon icon="fluent-mdl2:market" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Markets</span>
+										<span class="flex-auto text-sm">Markets</span>
 									</a>
 								</li>
 							</ul>
@@ -162,7 +166,7 @@
 								<li>
 									<a href="profile" class={classesActive('/profile')}>
 										<Icon icon="iconamoon:profile" color={classesActive('/')} width="25" />
-										<span class="flex-auto">Profile</span>
+										<span class="flex-auto text-sm">Profile</span>
 									</a>
 								</li>
 							</ul>
@@ -170,7 +174,7 @@
 					</nav>
 					<button type="button" class="btn variant-ringed mb-4" on:click={signOut}>
 						<Icon icon="uil:signout" color={classesActive('/')} width="25"/>
-						<span>Sign Out</span>
+						<span class="text-sm">Sign Out</span>
 					</button>
 				</div>
 				<span class="divider-vertical h-full" />
