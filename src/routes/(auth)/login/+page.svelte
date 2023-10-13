@@ -26,7 +26,7 @@
 			if (data) {
 				location.reload();
 			}
-			loading = false
+			loading = false;
 		} catch (error) {
 			if (error instanceof Error) {
 				// addNotification({
@@ -67,16 +67,23 @@
 					<span>Password</span>
 					<input class="input p-2" type="password" placeholder="Password" bind:value={password} />
 				</label>
-			</div><div class="flex justify-end">
-					<p>Forgot Password?</p>
-				</div>
+			</div>
+			<div class="flex justify-end">
+				<p>Forgot Password?</p>
+			</div>
 			<div class="mt-4">
-				<button type="submit" class={`btn variant-filled-tertiary w-full ${ loading ? 'disabled' : ''}`} aria-live="polite">
+				<button
+					type="submit"
+					class={`btn bg-primary-500 text-white w-full ${loading ? 'disabled' : ''}`}
+					aria-live="polite"
+				>
 					<span>{loading ? 'Loading' : 'Sign In'}</span>
 				</button>
 				<div class="flex gap-1 my-4 items-center justify-center">
 					<p>Don't have an account?</p>
-					<a href="/register" class="btn btn-sm p-0 text-primary-500" aria-live="polite"> Sign Up </a>
+					<a href="/register" class="btn btn-sm p-0 text-primary-500" aria-live="polite">
+						Sign Up
+					</a>
 				</div>
 			</div>
 		</form>
@@ -84,8 +91,8 @@
 </div>
 
 <style>
-	.input{
-		background-color: white!important;
-		color:black!important;
+	.input {
+		background-color: white !important;
+		color: black !important;
 	}
 </style>

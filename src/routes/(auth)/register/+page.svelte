@@ -77,7 +77,7 @@
 	<div class="mt-4">
 		<h2 class="h2 font-bold mt-4">Create Account</h2>
 	</div>
-	<form class="card p-6 mt-6 bg-tertiary-500">
+	<form class="card p-6 mt-6">
 		<div class="flex gap-16">
 			<div>
 				<h3 class="h3 font-semibold my-2">Account Information</h3>
@@ -173,7 +173,7 @@
 		</div>
 
 		<div class="mt-4">
-			<button type="button" class="btn variant-filled-tertiary btn-md w-full" on:click={handleSignUp}>
+			<button type="button" class="btn text-white bg-primary-500 btn-md w-full" on:click={handleSignUp}>
 				<span>Register</span>
 			</button>
 		</div>
