@@ -19,10 +19,9 @@
 	let selectedChartType = 'Line';
 </script>
 
-<div class="flex p-8">
+<!-- <div class="flex p-8">
 	<div class="w-[70%] flex flex-col gap-8">
 		<div class="grid">
-			<!-- Display the selected chart type -->
 			{#if selectedChartType === 'PolarArea'}
 				<h4 class="h4 font-bold">Polar Area Chart</h4>
 			{:else}
@@ -30,7 +29,6 @@
 			{/if}
 			<p>4 Oct, 17:05:01 UTC-4 · INDEXDJX · Disclaimer</p>
 		</div>
-		<!-- Render the selected chart -->
 		{#if selectedChartType === 'PolarArea'}
 			<PolarArea {data} options={{ responsive: true }} />
 		{/if}
@@ -61,4 +59,12 @@
 			>
 		</div>
 	</div>
-</div>
+</div> -->
+
+<iframe
+	src="https://malawi.opendataforafrica.org/strflff/population-projections-2008-2017?regionId=MW-NI"
+	allowtransparency="true"
+	scrolling="yes"
+	frameborder="0"
+	style="height:100%;width:940px;min-width:100%;"
+/>
