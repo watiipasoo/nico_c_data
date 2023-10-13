@@ -96,7 +96,7 @@
 							<Icon icon={currentIcon} width="20" />
 							
 						</button>
-						<span class="text-sm">Mode</span>
+						<span class="text-xs">Mode</span>
 					</div>
 					<div>
 						<a href="/profile">
