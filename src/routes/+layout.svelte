@@ -52,7 +52,7 @@
 		}
 	}
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500' : '');
+	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : 'text-black');
 </script>
 
 <!-- App Shell -->
@@ -68,12 +68,12 @@
 			<section class="card flex justify-between px-6 py-2 items-center">
 				<a href="/"><img class="h-16" src="/nicoC.png" /></a>
 				<div class="w-[70vh]">
-					<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
-						<div class="input-group-shim">
-							<Icon icon="material-symbols:search" color="white" width="20" />
-						</div>
-						<input type="search" placeholder="Search..." />
-						<button class="variant-filled-secondary">Submit</button>
+					<div class="input-group input-group-divider grid-cols-[1fr_auto]">
+						<input type="text" placeholder="Search..." />
+
+						<button class="variant-filled-secondary"
+							><Icon icon="material-symbols:search" color="white" width="20" /></button
+						>
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
@@ -102,38 +102,38 @@
 							<ul class="mt-4">
 								<li>
 									<a href="/" class={classesActive('/')}>
-										<Icon icon="material-symbols:home-outline" color="white" width="25" />
+										<Icon icon="material-symbols:home-outline" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Home</span>
 									</a>
 								</li>
 								<li>
 									<a href="/data" class={classesActive('/data')}>
-										<Icon icon="fluent:data-area-20-filled" color="white" width="25" />
+										<Icon icon="fluent:data-area-20-filled" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Data</span>
 									</a>
 								</li>
 								<li>
 									<a href="/reports" class={classesActive('/reports')}>
-										<Icon icon="mdi:report-box-outline" color="white" width="25" />
+										<Icon icon="mdi:report-box-outline" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Reports</span>
 									</a>
 								</li>
 								<li>
 									<a href="/news" class={classesActive('/news')}>
-										<Icon icon="tabler:news" color="white" width="25" />
+										<Icon icon="tabler:news" color={classesActive('/')} width="25" />
 										<span class="flex-auto">News</span>
 									</a>
 								</li>
 								<li>
 									<a href="/Industries" class={classesActive('/Industries')}>
-										<Icon icon="carbon:industry" color="white" width="25" />
+										<Icon icon="carbon:industry" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Industries</span>
 									</a>
 								</li>
 
 								<li>
 									<a href="">
-										<Icon icon="fluent-mdl2:market" color="white" width="25" />
+										<Icon icon="fluent-mdl2:market" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Markets</span>
 									</a>
 								</li>
@@ -144,7 +144,7 @@
 							<ul class="mt-4">
 								<li>
 									<a href="profile" class={classesActive('/profile')}>
-										<Icon icon="iconamoon:profile" color="white" width="25" />
+										<Icon icon="iconamoon:profile" color={classesActive('/')} width="25" />
 										<span class="flex-auto">Profile</span>
 									</a>
 								</li>

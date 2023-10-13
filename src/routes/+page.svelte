@@ -178,23 +178,6 @@
 				{/if}
 			</svelte:fragment>
 		</TabGroup>
-		{#if user?.status}
-			<div class="my-4 flex gap-4">
-				{#if subscription.subscription == 'Basic'}
-					<button class="btn btn-sm variant-filled">Download</button>
-				{/if}
-				{#if subscription.subscription == 'Gold'}
-					<button class="btn btn-sm variant-filled">Download</button>
-					<button class="btn btn-sm variant-filled">Export CSV</button>
-					<button class="btn btn-sm variant-filled">APIs</button>
-				{/if}
-				{#if subscription.subscription == 'Pro'}
-					<button class="btn btn-sm variant-filled">Download</button>
-					<button class="btn btn-sm variant-filled">Export CSV</button>
-					<button class="btn btn-sm variant-filled">APIs</button>
-				{/if}
-			</div>
-		{/if}
 	</div>
 	<div class="mt-12 flex gap-4">
 		<div class="flex-[70%]">
