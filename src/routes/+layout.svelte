@@ -151,8 +151,9 @@
 							</ul>
 						</div>
 					</nav>
-					<button type="button" class="btn variant-ghost-tertiary mb-4" on:click={signOut}>
-						<span>EXIT</span>
+					<button type="button" class="btn variant-ringed mb-4" on:click={signOut}>
+						<Icon icon="uil:signout" color={classesActive('/')} width="25"/>
+						<span>Sign Out</span>
 					</button>
 				</div>
 				<span class="divider-vertical h-full" />
