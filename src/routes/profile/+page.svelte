@@ -41,7 +41,7 @@ src/routes/profile/+page.svelte
 		/>
 		<div class="text-center py-2 grid gap-2">
 			<h4 class="h4 font-bold">{data.profile?.username}</h4>
-			<p class="h6 text-primary-200">Business</p>
+			<p class="h6 text-secondary-400">Business</p>
 		</div>
 		<div class="mt-4 p-4 grid gap-4">
 			<div>

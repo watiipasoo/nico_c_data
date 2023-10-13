@@ -52,7 +52,21 @@
 		}
 	}
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : 'text-black');
+	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : '');
+
+	let currentIcon = 'ph:moon-fill'; 
+	function toggleTheme() {
+    const htmlElement = document.querySelector('html');
+    const currentTheme = htmlElement.getAttribute('class');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+    // Update the HTML element's class to switch the theme
+    htmlElement.setAttribute('class', newTheme);
+
+    // Store the theme preference in localStorage
+    localStorage.setItem('theme', newTheme);
+	currentIcon = newTheme === 'light' ? 'ph:moon-fill' : 'ph:sun-fill';
+  }
 </script>
 
 <!-- App Shell -->
@@ -71,12 +85,15 @@
 					<div class="input-group input-group-divider grid-cols-[1fr_auto]">
 						<input type="text" placeholder="Search..." />
 
-						<button class="variant-filled-secondary"
-							><Icon icon="material-symbols:search" color="white" width="20" /></button
+						<button class="variant-filled-secondary">
+							<Icon icon="material-symbols:search" color="white" width="20" /></button
 						>
 					</div>
 				</div>
 				<div class="flex items-center gap-4">
+					<button on:click={toggleTheme} class="variant-ghost-tertiary rounded-full p-1 border-none">
+						<Icon icon={currentIcon} width="20" />
+					</button>
 					<div>
 						<a href="/profile">
 							<Avatar

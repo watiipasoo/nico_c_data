@@ -217,7 +217,7 @@
 			</TabGroup>
 		</div>
 		<div class="flex-[30%] ml-10">
-			<div class="card w-full p-4 variant-ghost-success">
+			<div class="card w-full p-4 variant-ghost-primary">
 				<h4 class="h4 font-semibold">Market trends</h4>
 				<div class="flex flex-wrap gap-4 mt-4">
 					<span class="chip variant-filled rounded-full">Market Indexes</span>
