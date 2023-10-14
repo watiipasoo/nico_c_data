@@ -1,4 +1,3 @@
-src/routes/profile/+page.svelte
 <script lang="ts">
 	import { Avatar, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
 	import type { PageData } from './$types';

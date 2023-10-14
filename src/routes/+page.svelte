@@ -58,7 +58,7 @@
 	{/if}
 	<!-- <Carouseli /> -->
 	<div>
-		<h3 class="h3 mb-4 mt-4">Market Watch</h3>
+		<h3 class="h3 mb-4 mt-4 font-bold">Market Watch</h3>
 
 		<TabGroup>
 			<Tab bind:group={tabSet} name="tab1" value={0}>
@@ -181,7 +181,7 @@
 	</div>
 	<div class="mt-12 flex gap-4">
 		<div class="flex-[70%]">
-			<h3 class="h3 mb-4">Todays Financial News</h3>
+			<h3 class="h3 mb-4 font-bold">Todays Financial News</h3>
 			<TabGroup>
 				<Tab bind:group={markets} name="tab1" value={0}>
 					<span>Top Stories</span>
