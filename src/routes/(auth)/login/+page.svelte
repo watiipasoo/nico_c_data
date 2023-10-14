@@ -3,15 +3,27 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	// import { getNotificationsContext } from 'svelte-notifications';
+	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 
-	// const { addNotification } = getNotificationsContext();
+	const toastStore = getToastStore();
 
 	$: ({ supabase, session } = data);
 
 	let loading = false;
 	let email = '';
 	let password = '';
+
+	const toastSuccess: ToastSettings = {
+		message: 'Sign Up Success',
+		// Provide any utility or variant background style:
+		background: 'variant-filled-success'
+	};
+
+	const toastFail: ToastSettings = {
+		message: 'Sign Up Failed',
+		// Provide any utility or variant background style:
+		background: 'variant-filled-error'
+	};
 
 	const handleSignIn = async () => {
 		try {
@@ -22,11 +34,15 @@
 				password: password
 			});
 
-			if (error) throw error;
-			if (data) {
-				location.reload();
+			if (error) {
+				throw error;
+				toastStore.trigger(toastFail);
 			}
-			loading = false;
+			if (data) {
+				toastStore.trigger(toastSuccess);
+				location.reload();
+				loading = false;
+			}
 		} catch (error) {
 			if (error instanceof Error) {
 				// addNotification({
@@ -35,6 +51,7 @@
 				// 	type: 'error',
 				// 	removeAfter: 3000
 				// });
+				toastStore.trigger(toastFail);
 			}
 		} finally {
 			loading = false;

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, Modal, Avatar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Modal, Avatar, type PopupSettings, popup } from '@skeletonlabs/skeleton';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	// Highlight JS
 	import hljs from 'highlight.js';
@@ -30,6 +31,18 @@
 	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
 
+	const popupClick: PopupSettings = {
+		event: 'click',
+		target: 'popupClick',
+		placement: 'right'
+	};
+
+	const market: PopupSettings = {
+		event: 'click',
+		target: 'markets',
+		placement: 'right'
+	};
+
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((event, _session) => {
 			if (_session?.expires_at !== session?.expires_at) {
@@ -52,21 +65,22 @@
 		}
 	}
 
-	$: classesActive = (href: string) => (href === $page.url.pathname ? '!bg-primary-500 text-white' : '');
+	$: classesActive = (href: string) =>
+		href === $page.url.pathname ? '!bg-primary-500 text-white' : '';
 
-	let currentIcon = 'ph:moon-fill'; 
+	let currentIcon = 'ph:moon-fill';
 	function toggleTheme() {
-    const htmlElement = document.querySelector('html');
-    const currentTheme = htmlElement.getAttribute('class');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+		const htmlElement = document.querySelector('html');
+		const currentTheme = htmlElement.getAttribute('class');
+		const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    // Update the HTML element's class to switch the theme
-    htmlElement.setAttribute('class', newTheme);
+		// Update the HTML element's class to switch the theme
+		htmlElement.setAttribute('class', newTheme);
 
-    // Store the theme preference in localStorage
-    localStorage.setItem('theme', newTheme);
-	currentIcon = newTheme === 'light' ? 'ph:moon-fill' : 'ph:sun-fill';
-  }
+		// Store the theme preference in localStorage
+		localStorage.setItem('theme', newTheme);
+		currentIcon = newTheme === 'light' ? 'ph:moon-fill' : 'ph:sun-fill';
+	}
 </script>
 
 <!-- App Shell -->
@@ -92,11 +106,7 @@
 				</div>
 				<div class="flex items-center gap-4">
 					<div class="flex justify-center items-center flex-col">
-						<button on:click={toggleTheme} class="variant-ghost-tertiary rounded-full p-1 border-none">
-							<Icon icon={currentIcon} width="20" />
-							
-						</button>
-						<span class="text-xs">Mode</span>
+						<LightSwitch />
 					</div>
 					<div>
 						<a href="/profile">
@@ -123,7 +133,11 @@
 							<ul class="mt-4">
 								<li>
 									<a href="/" class={classesActive('/')}>
-										<Icon icon="material-symbols:home-outline" color={classesActive('/')} width="25" />
+										<Icon
+											icon="material-symbols:home-outline"
+											color={classesActive('/')}
+											width="25"
+										/>
 										<span class="flex-auto text-sm">Home</span>
 									</a>
 								</li>
@@ -146,17 +160,74 @@
 									</a>
 								</li>
 								<li>
-									<a href="/Industries" class={classesActive('/Industries')}>
+									<a use:popup={popupClick} class={classesActive('/Industries')}>
 										<Icon icon="carbon:industry" color={classesActive('/')} width="25" />
 										<span class="flex-auto text-sm">Industries</span>
+										<span>
+											<Icon icon="mdi:menu-down" />
+										</span>
 									</a>
+									<div class="card p-4 variant-filled-primary" data-popup="popupClick">
+										<ul>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="fluent:real-estate-20-regular" width="25" />
+													<span class="flex-auto text-sm">Real Estate</span>
+												</a>
+											</li>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="grommet-icons:technology" width="25" />
+													<span class="flex-auto text-sm">Technology</span>
+												</a>
+											</li>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="iconoir:healthcare" width="25" />
+													<span class="flex-auto text-sm">HealthCare</span>
+												</a>
+											</li>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="mdi:energy-outline" width="25" />
+													<span class="flex-auto text-sm">Energy</span>
+												</a>
+											</li>
+											<!-- ... -->
+										</ul>
+									</div>
 								</li>
 
 								<li>
-									<a href="">
+									<a use:popup={market} class={classesActive('/Industries')}>
 										<Icon icon="fluent-mdl2:market" color={classesActive('/')} width="25" />
 										<span class="flex-auto text-sm">Markets</span>
+										<span>
+											<Icon icon="mdi:menu-down" />
+										</span>
 									</a>
+									<div class="card p-4 variant-filled-primary" data-popup="markets">
+										<ul>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="streamline:money-graph-bar-increase-up-product-performance-increase-arrow-graph-business-chart" width="25" />
+													<span class="flex-auto text-sm">Stocks:Gainers</span>
+												</a>
+											</li>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="streamline:money-graph-bar-decrease-arrow-product-performance-down-decrease-graph-business-chart" width="25" />
+													<span class="flex-auto text-sm">Stocks:Losers</span>
+												</a>
+											</li>
+											<li>
+												<a href="/elements/lists">
+													<Icon icon="ri:currency-line" width="25" />
+													<span class="flex-auto text-sm">Currencies</span>
+												</a>
+											</li>
+										</ul>
+									</div>
 								</li>
 							</ul>
 						</div>
@@ -173,7 +244,7 @@
 						</div>
 					</nav>
 					<button type="button" class="btn variant-ringed mb-4" on:click={signOut}>
-						<Icon icon="uil:signout" color={classesActive('/')} width="25"/>
+						<Icon icon="uil:signout" color={classesActive('/')} width="25" />
 						<span class="text-sm">Sign Out</span>
 					</button>
 				</div>

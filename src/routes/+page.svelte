@@ -4,6 +4,7 @@
 	import { animate, glide } from 'motion';
 	import Carouseli from '../components/Carousel/Carouseli.svelte';
 	import HomeNews from '../components/News/HomeNews/HomeNews.svelte';
+	import Icon from '@iconify/svelte';
 
 	export let data;
 
@@ -220,12 +221,30 @@
 			<div class="card w-full p-4 variant-ghost-primary">
 				<h4 class="h4 font-semibold">Market trends</h4>
 				<div class="flex flex-wrap gap-4 mt-4">
-					<span class="chip variant-filled rounded-full">Market Indexes</span>
-					<span class="chip variant-filled rounded-full">Most Active</span>
-					<span class="chip variant-filled rounded-full">Gainers</span>
-					<span class="chip variant-filled rounded-full">Losers</span>
-					<span class="chip variant-filled rounded-full">Climate Leaders</span>
-					<span class="chip variant-filled rounded-full">Currencies</span>
+					<span class="chip variant-filled rounded-full">
+						<Icon icon="la:chart-line" />
+						<span>Market Indexes</span>
+					</span>
+					<span class="chip variant-filled rounded-full">
+						<Icon icon="solar:chart-linear" />
+						<span>
+							Most Active
+						</span>
+					</span>
+					<span class="chip variant-filled rounded-full">
+						<Icon icon="streamline:money-graph-bar-increase-up-product-performance-increase-arrow-graph-business-chart" />
+						<span>Gainers</span>
+					</span>
+					<span class="chip variant-filled rounded-full">
+						<Icon icon="streamline:money-graph-bar-decrease-arrow-product-performance-down-decrease-graph-business-chart" />
+						<span>
+							Losers
+						</span>
+					</span>
+					<span class="chip variant-filled rounded-full">
+						<Icon icon="ri:currency-line" />
+						<span>Currencies</span>
+					</span>
 				</div>
 			</div>
 		</div>
