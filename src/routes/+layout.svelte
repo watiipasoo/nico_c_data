@@ -95,19 +95,13 @@
 		{#if $page.url.pathname !== '/login' && $page.url.pathname !== '/register'}
 			<section class="card flex justify-between px-6 py-2 items-center">
 				<a href="/"><img class="h-16" src="/nicoC.png" /></a>
-				<div class="w-[70vh]">
-					<div class="input-group input-group-divider grid-cols-[1fr_auto]">
-						<input type="text" placeholder="Search..." />
-
-						<button class="variant-filled-secondary">
-							<Icon icon="material-symbols:search" color="white" width="20" /></button
-						>
-					</div>
-				</div>
 				<div class="flex items-center gap-4">
 					<div class="flex justify-center items-center flex-col">
 						<LightSwitch />
 					</div>
+						<button class="p-2 rounded-full bg-gradient-to-br variant-gradient-error-warning">
+							<Icon icon="iconamoon:search-duotone" color="white" width="15" /></button
+					>					
 					<div>
 						<a href="/profile">
 							<Avatar
